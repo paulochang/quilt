@@ -1,0 +1,69 @@
+body {
+    padding-top: 50px;
+    background-image: url('../img/download.png');
+}
+
+.navbar-toggle .icon-bar {
+    color: black;
+    background-color: black;
+}
+
+.navbar-nav>li>a:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.navbar-nav>li>a:hover {
+    text-decoration: underline;
+}
+
+canvas {
+    display: block;
+}
+
+.white-bg {
+    background-color: #fff;
+}
+
+.txt-black * {
+    color: #111;
+}
+
+.txt-black a:hover {
+    color: #000;
+}
+
+.centered-parent {
+    position: relative;
+}
+
+.centered-child {
+    margin: 0 auto;
+    width: 80%;
+    height: 50%;
+    text-align: center;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.bg-white {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.txt-white {
+    color: #eee;
+}
+
+.main-group {
+    padding: 10px 20px;
+}
+
+.hgt-responsive {
+    width: 20%;
+    height: auto;
+}
+
+.pad-20 {
+    padding: 20px;
+}
