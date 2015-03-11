@@ -60,8 +60,9 @@ var currentColor;
 var canvasElement;
 var colorElement;
 
-$(document).mousedown(function () {
-    mouseIsDown = true;
+$(document).mousedown(function (event) {
+    if (event.which == 1)
+        mouseIsDown = true;
 });
 
 $(document).mouseup(function () {
@@ -99,60 +100,49 @@ function drawSingleTriangle(firstPoint, secondPoint, thirdPoint, isGray) {
         },
         mousedown: function (layer) {
             currentColor = colorElement.val();
-            if (layer.fillStyle !== currentColor) {
+            if (layer.fillStyle != currentColor) {
                 isPainting = true;
                 canvasElement.setLayer(layer, {
                     fillStyle: currentColor
-                }).drawLayers();
-                //nueva.push(layer.name);
+                }).drawLayer(layer.name);
             } else {
                 isPainting = false;
                 canvasElement.setLayer(layer, {
                     fillStyle: fillColor
-                }).drawLayers();
-                /*var i = nueva.indexOf(layer.name);
-                if (i != -1) {
-                    nueva.splice(i, 1);
-                }*/
+                }).drawLayer(layer.name);
             }
         },
-        mousemove: function (layer) {
+        mouseover: function (layer) {
             if (mouseIsDown) {
                 if (isPainting) {
-                    canvasElement.setLayer(layer, {
-                        fillStyle: currentColor
-                    }).drawLayers();
-                    /*nueva.push(layer.name);*/
+                    if (layer.fillStyle != currentColor) {
+                        canvasElement.setLayer(layer, {
+                            fillStyle: currentColor
+                        }).drawLayer(layer.name);
+                    }
                 } else if (!isPainting) {
-                    canvasElement.setLayer(layer, {
-                        fillStyle: fillColor
-                    }).drawLayers();
-                    /*var i = nueva.indexOf(layer.name);
-                    if (i != -1) {
-                        nueva.splice(i, 1);
-                    }*/
+                    if (layer.fillStyle != fillColor) {
+                        canvasElement.setLayer(layer, {
+                            fillStyle: fillColor
+                        }).drawLayer(layer.name);
+                    }
                 }
-                //console.log(nueva.join());
-                //console.log(constants.intervals);
             }
         },
         touchmove: function (layer) {
             if (isPainting) {
-                canvasElement.setLayer(layer, {
-                    fillStyle: currentColor
-                }).drawLayers();
-                /*nueva.push(layer.name);*/
+                if (layer.fillStyle != currentColor) {
+                    canvasElement.setLayer(layer, {
+                        fillStyle: currentColor
+                    }).drawLayer(layer.name);
+                }
             } else if (!isPainting) {
-                canvasElement.setLayer(layer, {
-                    fillStyle: fillColor
-                }).drawLayers();
-                /*var i = nueva.indexOf(layer.name);
-                if (i != -1) {
-                    nueva.splice(i, 1);
-                }*/
+                if (layer.fillStyle != fillColor) {
+                    canvasElement.setLayer(layer, {
+                        fillStyle: fillColor
+                    }).drawLayer(layer.name);
+                }
             }
-            //console.log(nueva.join());
-            //console.log(constants.intervals);
         }
     });
 
@@ -209,7 +199,7 @@ $(window).load(function () {
     myCanvas.width = canWidth;
     myCanvas.height = canWidth;
     constants.canvasWidth = canWidth;
-    canvasElement = $('canvas');
+    canvasElement = $(myCanvas);
     currentColor = colorElement.val();
     update();
 });
@@ -224,21 +214,14 @@ function update() {
     for (var i = 0; i < stepLimit; i++) {
         drawWhiteTriangles(i);
     }
-    /* northstar.forEach(function (entry) {
-         $('canvas').addLayerToGroup(entry, 'g1');
-     });*/
 }
 
 function selectTemplate() {
-    console.log("ejecuta select");
     var templateSelector = parseInt(document.getElementById('templateSelector').value);
-    console.log(templateSelector);
     var codeArray = shapeArray[templateSelector];
-    console.log(codeArray);
     update();
     codeArray.forEach(function (entry) {
         canvasElement.addLayerToGroup(entry, 'g1');
-        console.log(codeArray);
     });
     canvasElement.setLayerGroup('g1', {
         fillStyle: '#36b'
