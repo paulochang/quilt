@@ -1,7 +1,7 @@
 /*global window,console,$,document:false */
 var constants = {
     light: "rgb(200,200,200)",
-    shade: 'rgb(255,255,255)',
+    shade: 'rgba(255,255,255,0)',
     intervals: 8,
     canvasWidth: 480
 };
@@ -214,6 +214,7 @@ function update() {
     for (var i = 0; i < stepLimit; i++) {
         drawWhiteTriangles(i);
     }
+    document.getElementById('submitBtn').addEventListener("click", uploadImage, false);
 }
 
 function selectTemplate() {
@@ -226,4 +227,34 @@ function selectTemplate() {
     canvasElement.setLayerGroup('g1', {
         fillStyle: '#36b'
     }).drawLayers();
+}
+
+function uploadImage() {
+    var reader = new FileReader();
+    reader.onload = function (event) {
+        var img = new Image();
+        img.onload = function () {
+            var xsize = img.width;
+            var ysize = img.height;
+
+            var mainSize = (xsize > ysize) ? xsize : ysize;
+            var scaleNr = canvasElement.width() / mainSize;
+
+            canvasElement.removeLayer('bgImage');
+
+            canvasElement.drawImage({
+                name: 'bgImage',
+                layer: true,
+                source: img,
+                scale: scaleNr,
+                x: xsize * scaleNr / 2,
+                y: ysize * scaleNr / 2
+            }).moveLayer('bgImage', 0).drawLayers();
+        };
+        img.src = event.target.result;
+        if (img.complete) {
+            $(img).trigger('load');
+        }
+    };
+    reader.readAsDataURL(document.getElementById('imageLoader').files[0]);
 }

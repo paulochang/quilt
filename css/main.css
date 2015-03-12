@@ -20,10 +20,6 @@ canvas {
     display: block;
 }
 
-.white-bg {
-    background-color: #fff;
-}
-
 .txt-black * {
     color: #111;
 }
@@ -48,7 +44,7 @@ canvas {
 }
 
 .bg-white {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.95);
 }
 
 .txt-white {

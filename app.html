@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
@@ -12,6 +12,7 @@
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/colorPicker.css">
     <link rel="stylesheet" href="css/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Slabo+27px|Roboto:400,700' rel='stylesheet' type='text/css'>
     <script type='application/javascript' src='js/fastclick.js'></script>
     <script type="application/javascript">
         window.addEventListener('load', function () {
@@ -30,8 +31,8 @@
 
 <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <nav class="navbar navbar-fixed-top txt-black">
+        <div class="container bg-white">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
@@ -39,15 +40,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Quilting Codes</a>
+                <a class="navbar-brand text-uppercase" href="/.">Sitio-Seña</a>
+                <div class="navbar-text">
+                    <a href="#">EN</a> /
+                    <a href="#">ES</a>
+                </div>
             </div>
+
             <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Create</a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="/about.html">Acerca de</a>
                     </li>
-                    <li><a href="#about">About</a>
+                    <li><a href="/artists/">Artistas</a>
                     </li>
-                    <li><a href="#contact">Instructions</a>
+                    <li><a href="/contact/">Referencias</a>
                     </li>
                 </ul>
             </div>
@@ -55,36 +61,24 @@
         </div>
     </nav>
 
-    <div class="container  bg-white">
+    <div class="container bg-white">
 
-        <div class="starter-template">
-            <h1>Quilt Creation <small>Create here your own  codes</small></h1>
+        <div class="">
+            <h1 class="page-header">Creación de Quilt <small>Crea tus propios códigos</small></h1>
         </div>
 
         <div class="row bg">
-            <div class="col-md-9" id="canvasContainer">
-                <canvas id="myCanvas"></canvas>
-                <div class="form-group">
-                    <label for="nameInput">Name</label>
-                    <input class="form-control" id="nameInput">
-                </div>
-                <div class="form-group">
-                    <label for="meaningInput">Meaning</label>
-                    <textarea class="form-control" rows="3" id="meaningInput"></textarea>
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-primary" type="submit">Guardar</button>
-                </div>
-            </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <input type="number" onchange="update();" id="gridSize" value="8" />
+                    <label for="gridSize">No. Divisiones</label>
+                    <input class="form-control" type="number" onchange="update();" id="gridSize" value="8" />
                 </div>
                 <div class="form-group">
-                    <input id="imageLoader" type="file" />
+                    <label for="imageLoader">Elegir Imagen</label>
+                    <input class="form-control" id="imageLoader" type="file" />
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-default">Upload</button>
+                    <button id="submitBtn" type="button" class="btn btn-default">Subir</button>
                 </div>
                 <div class="form-group">
                     <label for="colorInput">Color</label>
@@ -110,6 +104,22 @@
                     <p>
                         Slaves’ clothes were often tattered and easy to spot. This pattern meant that someone would bring the slave nice clothes to help them blend in with the free blacks.
                     </p>
+                </div>
+            </div>
+            <div class="col-md-9" id="canvasContainer">
+                <div class="form-group">
+                    <canvas id="myCanvas"></canvas>
+                </div>
+                <div class="form-group">
+                    <label for="nameInput">Nombre</label>
+                    <input class="form-control" id="nameInput">
+                </div>
+                <div class="form-group">
+                    <label for="meaningInput">Significado</label>
+                    <textarea class="form-control" rows="3" id="meaningInput"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Guardar</button>
                 </div>
             </div>
         </div>
