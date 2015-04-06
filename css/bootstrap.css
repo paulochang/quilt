@@ -5,8 +5,8 @@
  */
 
 /*!
- * Generated using the Bootstrap Customizer (http://getbootstrap.com/customize/?id=7a3a5818b486cfd011d8)
- * Config saved to config.json and https://gist.github.com/7a3a5818b486cfd011d8
+ * Generated using the Bootstrap Customizer (http://getbootstrap.com/customize/?id=0eddf5bb42958b0bac1a)
+ * Config saved to config.json and https://gist.github.com/0eddf5bb42958b0bac1a
  */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
@@ -1095,7 +1095,7 @@ a {
 a:hover,
 a:focus {
   color: #23527c;
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:focus {
   outline: thin dotted;
@@ -3311,7 +3311,7 @@ fieldset[disabled] .btn-link {
 .btn-link:hover,
 .btn-link:focus {
   color: #23527c;
-  text-decoration: underline;
+  text-decoration: none;
   background-color: transparent;
 }
 .btn-link[disabled]:hover,

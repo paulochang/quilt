@@ -15,7 +15,7 @@
     "@text-color": "@gray-dark",
     "@link-color": "@brand-primary",
     "@link-hover-color": "darken(@link-color, 15%)",
-    "@link-hover-decoration": "underline",
+    "@link-hover-decoration": "none",
     "@font-family-sans-serif": "\"Roboto\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
     "@font-family-serif": "\"Slabo 27px\", Georgia, \"Times New Roman\", Times, serif",
     "@font-family-monospace": "Menlo, Monaco, Consolas, \"Courier New\", monospace",
@@ -413,12 +413,12 @@
   ],
   "js": [
     "alert.js",
-    "button.js",
     "dropdown.js",
     "modal.js",
     "affix.js",
+    "collapse.js",
     "scrollspy.js",
     "transition.js"
   ],
-  "customizerUrl": "http://getbootstrap.com/customize/?id=7a3a5818b486cfd011d8"
+  "customizerUrl": "http://getbootstrap.com/customize/?id=0eddf5bb42958b0bac1a"
 }
