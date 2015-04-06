@@ -1,58 +1,9 @@
-/*global window,console,$,document:false, Image, FileReader */
 var constants = {
     light: "rgb(200,200,200)",
-    shade: 'rgba(255,255,255,0)',
+    shade: "rgba(255,255,255,0)",
     intervals: 8,
     canvasWidth: 480
 };
-
-/*
-var none = [];
-
-var monkey_wrench = ["t2", "t12", "t17", "t19", "t20", "t18", "t21", "t23", "t22", "t24", "t25",
-                    "t27", "t26", "t28", "t29", "t31", "t97", "t99", "t98", "t114", "t124", "t108",
-                     "t109", "t111", "t100", "t101", "t103", "t102", "t104", "t105", "t107", "t106",
-                     "t35", "t34", "t50", "t51", "t67", "t66", "t82", "t83", "t45", "t44", "t60",
-                     "t61", "t77", "t76", "t92", "t93"];
-
-var shoofly = ["t21", "t37", "t36", "t34", "t55", "t54", "t56", "t57", "t73", "t72", "t70",
-                     "t71", "t43", "t27", "t44", "t42", "t85", "t101", "t84", "t82", "t91", "t90",
-                     "t92", "t107"];
-
-
-var flying_geese = ['t2', 't6', 't10', 't12',
-                    't17', 't18', 't19', 't21', 't22', 't23', 't25', 't26', 't27', 't28', 't29', 't31',
-                    't33', 't34', 't35', 't37', 't38', 't39', 't42', 't44',
-                    't50', 't54', 't57', 't58', 't59', 't60', 't61', 't63',
-                    't65', 't66', 't67', 't68', 't69', 't71', 't72', 't76',
-                    't82', 't84', 't88', 't89', 't91', 't92', 't93', 't95',
-                    't97', 't98', 't99', 't100', 't101', 't103', 't104', 't105',
-                    't107', 't108', 't109', 't111', 't114', 't116', 't120', 't124'];
-
-var bow_ties = ['t0', 't6', 't9', 't10', 't11', 't12', 't13', 't15',
-                    't16', 't17', 't19', 't21', 't22', 't23', 't26', 't28',
-                    't32', 't33', 't35', 't37', 't38', 't39', 't42', 't44',
-                    't48', 't54', 't57', 't58', 't59', 't60', 't61', 't63',
-                    't65', 't66', 't67', 't68', 't69', 't71', 't72', 't78',
-                    't82', 't84', 't88', 't89', 't91', 't93', 't94', 't95',
-                    't98', 't100', 't104', 't105', 't107', 't109', 't110', 't111',
-                    't113', 't114', 't115', 't116', 't117', 't119', 't120', 't126'];
-
-var crossroads = ["t2", "t4", "t10", "t12", "t17", "t19", "t20",
-                  "t18", "t21", "t23", "t25", "t27", "t26", "t29", "t28",
-                  "t31", "t33", "t35", "t34", "t36", "t37", "t39", "t41",
-                  "t43", "t42", "t44", "t45", "t47", "t50", "t52", "t58",
-                  "t60", "t66", "t68", "t74", "t76", "t81", "t83", "t82",
-                  "t84", "t85", "t87", "t89", "t91", "t90", "t92", "t93",
-                  "t95", "t97", "t99", "t98", "t100", "t101", "t103", "t105",
-                  "t107", "t106", "t108", "t109", "t111", "t114", "t116", "t122", "t124"];
-
-var northstar = ["t4", "t10", "t20", "t21", "t23", "t25", "t27", "t26", "t33", "t35", "t34", "t36", "t37", "t39", "t38", "t40", "t41", "t43", "t42", "t44", "t45", "t47", "t50", "t52", "t53", "t55", "t54", "t56", "t57", "t59", "t58", "t60", "t66", "t68", "t69", "t71", "t70", "t72", "t73", "t75", "t74", "t76", "t81", "t83", "t82", "t84", "t87", "t85", "t86", "t88", "t89", "t91", "t90", "t92", "t93", "t95", "t100", "t101", "t103", "t105", "t107", "t106", "t116", "t122"];
-
-
-var shapeArray = [none, monkey_wrench, shoofly, flying_geese, bow_ties, crossroads, northstar];
-*/
-
 var nueva = [];
 var counter = 0;
 var isPainting = false;
@@ -161,7 +112,7 @@ var bears1 = new ColorLayer("#000", [
     "t354", "t335", "t335", "t333", "t332", "t332", "t332", "t332", "t304", "t304", "t279", "t279", "t277", "t277",
     "t276", "t276", "t276", "t276", "t248", "t279"]);
 
-var bears2 = new ColorLayer("63ba00", [
+var bears2 = new ColorLayer("#63ba00", [
     "t61", "t61", "t60", "t60", "t60", "t88", "t88", "t89", "t91", "t91", "t90", "t90", "t62", "t62", "t63", "t63",
     "t63", "t78", "t78", "t77", "t77", "t76", "t76", "t104", "t105", "t107", "t107", "t107", "t106", "t106", "t79",
     "t79", "t74", "t74", "t75", "t73", "t73", "t72", "t101", "t101", "t103", "t102", "t102", "t102", "t102", "t100",
@@ -653,51 +604,51 @@ var ladderLayer = [ladder1];
 
 var none = new Template("", "", 8, noneLayer);
 /*1*/
-var monkey_wrench = new Template("Llave Inglesa", "Recoge herramientas físicas y espirituales para iniciar el viaje.", 8, monLayer);
+var monkey_wrench = new Template("Llave Inglesa", "Recoge herramientas f\xEDsicas y espirituales para iniciar el viaje.", 8, monLayer);
 /*3*/
-var carpenter = new Template("La rueda del carpintero", "Escabúllete, los triángulos oscuros muestran una ruta segura.", 16, carpLayer);
+var carpenter = new Template("La rueda del carpintero", "Escab\xFAllete, los tri\xE1ngulos oscuros muestran una ruta segura.", 16, carpLayer);
 /*4*/
 var bears_paw = new Template("Huella del oso", "Sigue la huella del oso para encontrar agua y alimentos.", 14, bearLayer);
 /*5*/
-var basket = new Template("Cesto", "Acá es posible reunir provisiones.", 16, basketLayer);
+var basket = new Template("Cesto", "Ac\xE1 es posible reunir provisiones.", 8, basketLayer);
 /*6*/
-var crossroads = new Template("Encrucijada", "Encontrarás una ciudad importante donde hallarás protección y refugio.", 8, crossroadsLayer);
+var crossroads = new Template("Encrucijada", "Encontrar\xE1s una ciudad importante donde hallar\xE1s protecci\xF3n y refugio.", 8, crossroadsLayer);
 /*7*/
-var log_cabin = new Template("Cabaña de troncos", "Esta es una casa segura y es posible alojarse aquí.", 5, logLayer);
+var log_cabin = new Template("Caba\xF1a de troncos", "Esta es una casa segura y es posible alojarse aqu\xED.", 5, logLayer);
 /*8*/
-var shoofly = new Template("Escapar al vuelo", "Hay acá una persona que puede ayudarte en tu camino.", 8, shooflyLayer);
+var shoofly = new Template("Escapar al vuelo", "Hay ac\xE1 una persona que puede ayudarte en tu camino.", 8, shooflyLayer);
 /*9*/
-var bow_ties = new Template("Corbatín", "Cambia de identidad, se te proporcionará una muda de ropa.", 8, bow_tiesLayer);
+var bow_ties = new Template("Corbat\xEDn", "Cambia de identidad, se te proporcionar\xE1 una muda de ropa.", 8, bow_tiesLayer);
 /*10*/
-var flying_geese = new Template("Vuelo del ganso", "Sigue la dirección de las aves migratorias hacia el norte.", 8, flying_geeseLayer);
+var flying_geese = new Template("Vuelo del ganso", "Sigue la direcci\xF3n de las aves migratorias hacia el norte.", 8, flying_geeseLayer);
 /*12*/
-var sailboat = new Template("Velero", "Es necesario un barco.", 16, sailLayer);
+var sailboat = new Template("Velero", "Es necesario un barco.", 8, sailLayer);
 /*13*/
 var northstar = new Template("Estrella Polar", "Este es el camino correcto.", 8, northstarLayer);
 /*14*/
 var tumbling_blocks = new Template("Cataratas", "Has llegado al final del camino.", 8, tumblingLayer);
 /*101*/
-var dog = new Template("Perro", "Compañía, guía", 18, dogLayer);
+var dog = new Template("Perro", "Compa\xF1\xEDa, gu\xEDa", 18, dogLayer);
 /*102*/
 var milpa = new Template("Milpa", "Alimento, trabajo. Un ciclo importante para la familia.", 14, milpaLayer);
 /*103*/
-var travelling_bird = new Template("Pájaro Viajero", "Un viajero. Cuando llovía, los pájaros subían al cielo a cantar. Es el náhuatl del ser humano.", 14, viajeroLayer);
+var travelling_bird = new Template("P\xE1jaro Viajero", "Un viajero. Cuando llov\xEDa, los p\xE1jaros sub\xEDan al cielo a cantar. Es el n\xE1huatl del ser humano.", 16, viajeroLayer);
 /*104*/
-var road = new Template("Camino", "Recorrido zigzagueante, la forma en que se suben las pirámides, serpientes.", 18, roadLayer);
+var road = new Template("Camino", "Recorrido zigzagueante, la forma en que se suben las pir\xE1mides, serpientes.", 18, roadLayer);
 /*105*/
-var doll = new Template("Muñeca", "En muchos textiles este símbolo se asocia con las mujeres", 16, dollLayer);
+var doll = new Template("Mu\xF1eca", "En muchos textiles este s\xEDmbolo se asocia con las mujeres", 16, dollLayer);
 /*106*/
-var towns_center = new Template("Centro del pueblo", "Unión, centro de las actividades, punto de reunión.", 18, townLayer);
+var towns_center = new Template("Centro del pueblo", "Uni\xF3n, centro de las actividades, punto de reuni\xF3n.", 18, townLayer);
 /*107*/
 var stars = new Template("Estrellas", "Luz en la oscuridad.", 12, starLayer);
 /*108*/
-var flowers_1 = new Template("Flores", "Símbolo de feminidad, el jardín de la tejedora.", 9, flowerLayer);
+var flowers_1 = new Template("Flores", "S\xEDmbolo de feminidad, el jard\xEDn de la tejedora.", 9, flowerLayer);
 /*110*/
-var child = new Template("Niño", "Niño elevando sus brazos al cielo, inocencia y esperanza.", 16, childLayer);
+var child = new Template("Ni\xF1o", "Ni\xF1o elevando sus brazos al cielo, inocencia y esperanza.", 16, childLayer);
 /*111*/
 var rupan_plato = new Template("Rupan plato", "Ofrenda de comida, abundancia.", 14, rupanLayer);
 /*112*/
-var two_headed_eagle = new Template("Águila Bicéfala", "Dos perspectivas. Cuenta la leyenda que en los campos de cultivo debías cubrirte pues un águila de dos cabezas podría llevarte.", 18, eagleLayer);
+var two_headed_eagle = new Template("\xC1guila Bic\xE9fala", "Dos perspectivas. Cuenta la leyenda que en los campos de cultivo deb\xEDas cubrirte pues un \xE1guila de dos cabezas podr\xEDa llevarte.", 18, eagleLayer);
 /*113*/
 var ladder = new Template("Escalera", "Ascender, subir.", 16, ladderLayer);
 
@@ -755,7 +706,7 @@ function drawSingleTriangle(firstPoint, secondPoint, thirdPoint, isGray) {
         touchstart: function (layer) {
             mouseIsDown = true;
             currentColor = colorElement.val();
-            if (layer.fillStyle != currentColor) {
+            if (layer.fillStyle !== currentColor) {
                 isPainting = true;
                 canvasElement.setLayer(layer, {
                     fillStyle: currentColor
@@ -769,7 +720,7 @@ function drawSingleTriangle(firstPoint, secondPoint, thirdPoint, isGray) {
         },
         mousedown: function (layer) {
             currentColor = colorElement.val();
-            if (layer.fillStyle != currentColor) {
+            if (layer.fillStyle !== currentColor) {
                 isPainting = true;
                 canvasElement.setLayer(layer, {
                     fillStyle: currentColor
@@ -784,13 +735,13 @@ function drawSingleTriangle(firstPoint, secondPoint, thirdPoint, isGray) {
         mouseover: function (layer) {
             if (mouseIsDown) {
                 if (isPainting) {
-                    if (layer.fillStyle != currentColor) {
+                    if (layer.fillStyle !== currentColor) {
                         canvasElement.setLayer(layer, {
                             fillStyle: currentColor
                         }).drawLayer(layer.name);
                     }
                 } else if (!isPainting) {
-                    if (layer.fillStyle != fillColor) {
+                    if (layer.fillStyle !== fillColor) {
                         canvasElement.setLayer(layer, {
                             fillStyle: fillColor
                         }).drawLayer(layer.name);
@@ -800,13 +751,13 @@ function drawSingleTriangle(firstPoint, secondPoint, thirdPoint, isGray) {
         },
         touchmove: function (layer) {
             if (isPainting) {
-                if (layer.fillStyle != currentColor) {
+                if (layer.fillStyle !== currentColor) {
                     canvasElement.setLayer(layer, {
                         fillStyle: currentColor
                     }).drawLayer(layer.name);
                 }
             } else if (!isPainting) {
-                if (layer.fillStyle != fillColor) {
+                if (layer.fillStyle !== fillColor) {
                     canvasElement.setLayer(layer, {
                         fillStyle: fillColor
                     }).drawLayer(layer.name);
